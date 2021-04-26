@@ -5,23 +5,26 @@ import {
   SafeAreaView,
   Image,
   TouchableOpacity,
-  Dimensions
+  Dimensions,
 } from 'react-native';
-
+import { Feather } from '@expo/vector-icons';
 import wateringImg from '../assets/watering.png';
 import colors from '../styles/colors';
+import fonts from '../styles/fonts';
 
 export function Welcome() {
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.title}>Gerencie {'\n'} suas plantas {'\n'} de forma fácil</Text>
-      <Image source={wateringImg} style={styles.image} resizeMode="contain" />
+      <Text style={styles.title}>
+        Gerencie {'\n'} suas plantas {'\n'} de forma fácil
+      </Text>
+      <Image source={wateringImg} style={styles.image} resizeMode='contain' />
       <Text style={styles.subtitle}>
         Não esqueça mais de regar suas plantas. Nós cuidamos de lembrar você
         sempre que precisar.
       </Text>
       <TouchableOpacity style={styles.button} activeOpacity={0.5}>
-        <Text style={styles.buttonText}> > </Text>
+        <Feather name='chevron-right' style={styles.buttonIcon} />
       </TouchableOpacity>
     </SafeAreaView>
   );
@@ -33,18 +36,21 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'space-around',
+    paddingHorizontal: 10,
   },
   title: {
     fontSize: 32,
-    fontWeight: 'bold',
+    fontFamily: fonts.heading,
     textAlign: 'center',
+    lineHeight: 34,
     color: colors.heading,
     marginTop: 38,
-    width: '70%',
+    padding: 5,
   },
   subtitle: {
     textAlign: 'center',
     fontSize: 18,
+    fontFamily: fonts.text,
     paddingHorizontal: 20,
     color: colors.heading,
   },
@@ -57,11 +63,11 @@ const styles = StyleSheet.create({
     height: 56,
     width: 56,
   },
-  buttonText: {
+  buttonIcon: {
+    fontSize: 24,
     color: colors.white,
-    fontSize: 20
   },
   image: {
-    height: Dimensions.get('window').width * 0.7
-  }
+    height: Dimensions.get('window').width * 0.7,
+  },
 });
