@@ -14,7 +14,7 @@ interface MainButtonProps extends TouchableOpacityProps {
 
 export default function MainButton({ title, ...rest }: MainButtonProps) {
   return (
-    <TouchableOpacity style={styles.button} activeOpacity={0.5}>
+    <TouchableOpacity style={styles.button} activeOpacity={0.5} {...rest}>
       <Text style={styles.buttonText}>{title}</Text>
     </TouchableOpacity>
   );
