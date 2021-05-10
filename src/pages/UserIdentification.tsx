@@ -9,8 +9,10 @@ import {
   TouchableWithoutFeedback,
   Platform,
   Keyboard,
+  Alert,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/core';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import MainButton from '../components/MainButton';
 import colors from '../styles/colors';
 import fonts from '../styles/fonts';
@@ -36,7 +38,10 @@ export function UserIdentification() {
     setName(value);
   }
 
-  function handleSubmit() {
+  async function handleSubmit() {
+    if (!name) return Alert.alert('Por favor, informe seu nome 😊');
+
+    await AsyncStorage.setItem('@plantManager:username', name);
     navigation.navigate('Confirmation');
   }
 
@@ -57,7 +62,10 @@ export function UserIdentification() {
               <TextInput
                 style={[
                   styles.input,
-                  (isFocused || isFilled) && { borderColor: colors.green },
+                  (isFocused || isFilled) && {
+                    borderColor: colors.green,
+                    color: colors.heading,
+                  },
                 ]}
                 placeholder='Digite um nome'
                 onBlur={handleInputBlur}
