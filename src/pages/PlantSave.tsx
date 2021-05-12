@@ -18,24 +18,14 @@ import {
   getStatusBarHeight,
 } from 'react-native-iphone-x-helper';
 import { format, isBefore } from 'date-fns';
+import { PlantProps } from '../libs/storage';
 import waterDrop from '../assets/waterdrop.png';
 import MainButton from '../components/MainButton';
 import colors from '../styles/colors';
 import fonts from '../styles/fonts';
 
 interface Params {
-  plant: {
-    id: string;
-    name: string;
-    about: string;
-    water_tips: string;
-    photo: string;
-    environments: [string];
-    frequency: {
-      times: number;
-      repeat_every: string;
-    };
-  };
+  plant: PlantProps;
 }
 
 export function PlantSave() {
