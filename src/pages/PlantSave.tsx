@@ -118,7 +118,10 @@ export function PlantSave() {
               style={styles.dateTimePickerButton}
               onPress={handleOpenDateTimePickerAndroid}
             >
-              <Text style={styles.dateTimePickerText}>Selecionar Horário</Text>
+              <Text style={styles.dateTimePickerText}>{`Mudar ${format(
+                selectedDateTime,
+                'HH:mm'
+              )}`}</Text>
             </TouchableOpacity>
           )}
 
