@@ -1,4 +1,5 @@
 import React from 'react';
+import { Platform } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialIcons } from '@expo/vector-icons';
 import { PlantSelect } from '../pages/PlantSelect';
@@ -16,6 +17,7 @@ const AuthRoutes = () => {
         labelPosition: 'beside-icon',
         style: {
           height: 66,
+          paddingVertical: Platform.OS === 'ios' ? 20 : 0,
           borderTopLeftRadius: 10,
           borderTopRightRadius: 10,
         },
